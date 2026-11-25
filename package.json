@@ -1,0 +1,28 @@
+{
+  "name": "HTML-Land",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "start"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "framer-motion": "^14.14.0",
+    "highlight.js": "^11.12.0",
+    "highlightjs-copy": "^1.0.6",
+    "monaco-editor": "^0.57.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-mosaic-component": "^7.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0"
+  }
+}

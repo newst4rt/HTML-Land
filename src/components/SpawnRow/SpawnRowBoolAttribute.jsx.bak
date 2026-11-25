@@ -1,0 +1,67 @@
+/* For Arrays */
+
+/*
+    {boolAtt.map((input, index) => (
+        <SpawnRowBoolAttribute
+                key={index}
+                idx={index}
+                input={input}
+                htmlAttributes={prop.attributes.bool}
+                boolAtt={boolAtt}
+                setBoolAtt={setBoolAtt}
+                isAdding={isAdding}
+                setIsAdding={setIsAdding}
+        />
+    ))}
+
+*/
+
+export default function SpawnRowBoolAttribute({idx, htmlAttributes, boolAtt, setBoolAtt, isAdding, setIsAdding}) {
+
+    function SelectOption({ idx, data = [], usedAttributes = [] }) {
+        const used = new Set(
+            usedAttributes
+            .filter((_, i) => i !== idx)
+            .map(item => item)
+        );
+        return data
+            .filter(x => !used.has(x))
+            .map(x => <option key={x} value={x}>{x}</option>);
+    }
+
+
+    function updateInput(idx, value) {
+        setBoolAtt(previous => 
+            previous.map((item, i) =>
+                i === idx
+                    ? value
+                    : item
+            )
+        );
+    }
+    function addRow() {
+        setBoolAtt([...boolAtt, ""]);
+    }
+
+
+    function removeInput(index) {
+        setBoolAtt(previous =>
+            previous.filter((_, i) => i !== index)
+        );
+    }
+
+
+    return(
+        <>
+            <select size="1" onChange={(e) => updateInput(idx, e.target.value)} value={boolAtt[idx]}>
+                <optgroup label="BOOL">
+                    <option style={{ display: "none" }}>BOOL </option>
+                    <SelectOption idx={idx} data={htmlAttributes} usedAttributes={boolAtt}/>
+                </optgroup>
+            </select>
+            {boolAtt.length > 1  ? (<button type="button" onClick={() => removeInput(idx)}>-</button>) : (undefined)} 
+            <button className={boolAtt.length > htmlAttributes.length-1 ? "disabled" : "active"} type="button" onClick={addRow}>+</button>
+        </>
+    )
+
+}

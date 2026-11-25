@@ -115,3 +115,69 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## [vite](https://github.com/vitejs/vite)
+
+Next generation frontend tooling. It's fast!
+#### [MIT License](https://github.com/vitejs/vite/blob/main/LICENSE)
+```
+MIT License
+
+Copyright (c) 2019-present, VoidZero Inc. and Vite contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## [motion](https://github.com/motiondivision/motion)
+
+A modern animation library for React and JavaScript
+#### [MIT License](https://github.com/motiondivision/motion/blob/main/LICENSE.md)
+```
+The MIT License (MIT)
+
+Copyright (c) 2024 Motion B.V.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+## Fonts
+
+This project loads the following fonts through the Google Fonts CSS API:
+
+- **JetBrains Mono** — licensed under the SIL Open Font License 1.1 (OFL).
+  - Project: https://github.com/JetBrains/JetBrainsMono
+  - License: https://openfontlicense.org/open-font-license-official-text/
+- **Lato** — licensed under the SIL Open Font License 1.1 (OFL).
+  - Project: https://www.latofonts.com/
+  - License: https://openfontlicense.org/open-font-license-official-text/
+
+Font files are served by Google Fonts and are not included in this repository.
+
+## Asset credits and provenance
+
+| File | Origin | Tool / source | License or terms |
+|---|---|---|---|
+| `src/assets/logo.png` | AI-generated | CHAT-GPT, generated [2026.11] | Used under the provider's applicable terms |
+| `src/assets/logo-small.png` | Derived from `logo.png` | Project-created | Same terms as source asset |
+| `src/assets/left-arrow.png` | AI-generated | CHAT-GPT, generated [2026.11]| Used under the provider's applicable terms |
+| `public/favicon.png` | AI-generated | CHAT-GPT, generated [2026.11]| Used under the provider's applicable terms |

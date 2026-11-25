@@ -1,0 +1,51 @@
+main {
+    display: flex;
+    height: 100%;
+}
+
+
+.intro {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.htmlland-logo {
+    height: 125px;
+}
+
+.intro h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    letter-spacing: 10px;
+    text-align: center;
+    color: #6f94b4b5;
+    margin-left: 10px;
+}
+
+
+.mosaic-custom-theme {
+    flex: 1 1 0%;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+}
+
+
+
+.intro {
+    animation: leftClip 4.5s ease-out forwards;
+
+}
+
+@keyframes leftClip {
+  from {
+    clip-path: inset(0 100% 0 0); /* Rechts komplett abgeschnitten */
+  }
+  to {
+    clip-path: inset(0 0 0 0);    /* Komplett sichtbar */
+  }
+}

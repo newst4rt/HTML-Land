@@ -9,7 +9,7 @@
   <img  height="86" alt="HTML-Land" src="https://github.com/user-attachments/assets/c182747e-23fb-4c5f-ad40-d649a440a82e" />
   <br></br>
   
-  [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](http://google.de) [![License CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY–NC–SA%204.0-tomato)](#)<br><br>
+  [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://prismatic-biscochitos-032346.netlify.app) [![License CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY–NC–SA%204.0-tomato)](#)<br><br>
 [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)  [![JSX](https://img.shields.io/badge/JSX-blue.svg?logo=HTMX&logoColor=white)](#)    [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#)
 </div>
 
@@ -79,6 +79,8 @@ Thanks to all contributors and everyone who took part in:
   - Kevin Verdieck @ react-mosaic
   - Microsoft @ moaco-editor
   - Ivan Sagalaev @ highlightjs
+  - VoidZero Inc. and Vite contributors @ Vite
+  - Motion B.V. @ motion
 
 
 ## License

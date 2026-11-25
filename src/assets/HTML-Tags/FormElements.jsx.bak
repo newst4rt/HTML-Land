@@ -1,0 +1,127 @@
+export const inputType = [
+  {
+    id: 'input-1',
+    code: '<input type="button" value="Hit me Hard !"/>',
+    component: () => <input type="button" value="Hit me Hard !" name=""/>,
+    attributes: {
+      string: ["id", "value", "name"],
+      bool: ["disable"]
+
+    }
+  },
+  {
+    id: 'input-2',
+    code: '<input type="checkbox" />',
+    component: () => <input type="checkbox" />
+  },
+  {
+    id: 'input-3',
+    code: '<input type="color" />',
+    component: () => <input type="color"/>
+  },
+  {
+    id: 'input-4',
+    code: '<input type="date" />',
+    component: () => <input type="date"/>
+  },
+  {
+    id: 'input-5',
+    code: '<input type="datetime-local" />',
+    component: () => <input type="datetime-local"/>
+  },
+  {
+    id: 'input-6',
+    code: '<input type="email" />',
+    component: () => <input type="email"/>
+  },
+  {
+    id: 'input-7',
+    code: '<input type="file" />',
+    component: () => <input type="file"/>
+  },
+  {
+    id: 'input-8',
+    code: '<input type="hidden" />',
+    component: () => <input type="hidden"/>
+  },
+  {
+    id: 'input-9',
+    code: ' <input type="image" />',
+    component: () =>  <input type="image"/>
+  },
+  {
+    id: 'input-10',
+    code: '<input type="month" />',
+    component: () => <input type="month"/>
+  },
+  {
+    id: 'input-11',
+    code: '<input type="month" />',
+    component: () => <input type="month"/>
+  },
+  {
+    id: 'input-12',
+    code: '<input type="month" />',
+    component: () => <input type="month"/>
+  },
+  {
+    id: 'input-13',
+    code: '<input type="number" />',
+    component: () => <input type="number"/>
+  },
+  {
+    id: 'input-14',
+    code: '<input type="password" />',
+    component: () => <input type="password"/>
+  },
+  {
+    id: 'input-15',
+    code: '<input type="radio" />',
+    component: () => <input type="radio"/>
+  },
+  {
+    id: 'input-16',
+    code: '<input type="range" />',
+    component: () => <input type="range"/>
+  },
+  {
+    id: 'input-17',
+    code: '<input type="reset" />',
+    component: () => <input type="reset"/>
+  },
+  {
+    id: 'input-18',
+    code: '<input type="search" />',
+    component: () => <input type="search"/>
+  },
+  {
+    id: 'input-19',
+    code: '<input type="submit" />',
+    component: () => <input type="submit"/>
+  },
+  {
+    id: 'input-20',
+    code: '<input type="tel" />',
+    component: () => <input type="tel"/>
+  },
+  {
+    id: 'input-21',
+    code: '<input type="text" />',
+    component: () => <input type="text"/>
+  },
+  {
+    id: 'input-22',
+    code: '<input type="time" />',
+    component: () => <input type="time"/>
+  },
+  {
+    id: 'input-23',
+    code: '<input type="url" />',
+    component: () => <input type="url"/>
+  },
+  {
+    id: 'input-24',
+    code: '<input type="week" />',
+    component: () => <input type="week"/>
+  },
+];
