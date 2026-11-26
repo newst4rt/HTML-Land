@@ -5,7 +5,6 @@ import 'highlightjs-copy/dist/highlightjs-copy.min.css';
 
 hljs.addPlugin(new CopyButtonPlugin({
     hook: (text, el) => {
-        console.log("el" + el + "| text:" + text)
         return el.dataset.copyText || text;
     }
 }));

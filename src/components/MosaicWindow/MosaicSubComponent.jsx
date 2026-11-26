@@ -11,18 +11,15 @@ import '/src/components/MosaicComponent.css';
 
 function HtmlEditor({idx, htmlValue, setHtmlValue}) {
 
-
 return <Editor key={idx} options={{ automaticLayout: true }} theme="vs-dark" height="100%" defaultLanguage="html" value={htmlValue} onChange={(e) => setHtmlValue(prev => ({...prev, [idx]: e}))} />
 }
 
 function CssEditor({idx, cssValue, setCssValue}) {
-console.log(idx)
 
 return <Editor key={idx} options={{ automaticLayout: true }} theme="vs-dark" height="100%" defaultLanguage="css" value={cssValue} onChange={(e) => setCssValue(prev => ({...prev, [idx]: e}))} />;
 }
 
 export default function MosaicSubComponent({idx, htmlValue, setHtmlValue, cssValue, setCssValue}) {
-
 
     const [mosaicValue, setMosaicValue] = useState({
         direction: 'column',

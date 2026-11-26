@@ -9,7 +9,6 @@ import leftArrow from '/src/assets/left-arrow.png'
 export default function Header() {
 
     function openMenu(e) {
-        console.log(e)
         arrowState && setArrowState(false)  
 
         const leftMenu = document.querySelector('.leftMenu')
@@ -30,7 +29,6 @@ export default function Header() {
     const [ arrowState, setArrowState ] = useState(true)
 
     useEffect(() => {
-        console.log("this is a test")
         const checkMosaicRoot = document.querySelector('.mosaic-root')
         checkMosaicRoot && setArrowState(false)        
     }, [])

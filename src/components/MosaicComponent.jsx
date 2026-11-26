@@ -21,7 +21,6 @@ export default function MosaicComponent() {
       setCurrentTab(activeTabs.length)
     } else {
       const index = activeTabs.findIndex((x) => x === name);
-      console.log("masha")
       setCurrentTab(index)
     }
   }
@@ -62,7 +61,6 @@ export default function MosaicComponent() {
     windowSize.current = ([mosaicWindowSizeRow, 100-mosaicWindowSizeRow])
     windowSizeColumn.current = ([mosaicWindowSizeColumn, 100-mosaicWindowSizeColumn])
 
-    console.log(windowSize)
     const strip = document.querySelector('.main-tab-bar')
     if (!strip || !strip.children?.length) return;
 
@@ -76,7 +74,6 @@ export default function MosaicComponent() {
           tabWidth += x.clientWidth
         }
       })
-      console.log("toolbarwidth:" + toolBarWidth + " :: tabWidth:" + tabWidth)
 
       if (tabWidth > toolBarWidth) {
         if (!showTabScroll) {
@@ -91,7 +88,6 @@ export default function MosaicComponent() {
 
   function handleTabClick(e, index, tabKey, check) {
     if (clickTimeoutRef.current) {
-      console.log("first fire")
       clearTimeout(clickTimeoutRef.current);
       clickTimeoutRef.current = null;
       
@@ -121,7 +117,6 @@ export default function MosaicComponent() {
         try { return JSON.parse(localStorage.getItem(key)) ?? {}; } catch { return {}; }
     };
   const saved = load();
-  console.log(saved)
   const [activeTabs, setActiveTabs] = useState(saved.activeTabs ?? ['__hidden__'])
   const [subActiveTabs, setSubActiveTabs] = useState(saved.subActiveTabs ?? ["__subhidden__", "PAGE-1", "PAGE-2", "+"])
   const [currentTab, setCurrentTab] = useState(saved.currentTab ?? 1)
@@ -146,7 +141,6 @@ export default function MosaicComponent() {
 
   const spawnBoxDescription = htmlElements.map((x) => x.description) 
 
-  console.log("tasa:" + window.innerWidth)
 
   useEffect(() => {
         localStorage.setItem(key, JSON.stringify({ activeTabs, currentTab, subActiveTabs, currentSubTab, showTabScroll, showSubTabScroll, windowSize, htmlValue, cssValue, reactBrowser, index }));
@@ -231,7 +225,6 @@ export default function MosaicComponent() {
               const changeTarget = formData.get('newTabName');
               setChangeSubTabName(false)
               if (subActiveTabs.includes(changeTarget)) {
-                console.log(e)
                 e.target.firstChild.style.border = "1px solid red"
                 return
               }
@@ -298,10 +291,7 @@ export default function MosaicComponent() {
                                           sessionStorage.clear();
                                           if (isPageTab) { 
                                             setSubActiveTabs((prev) => prev.filter((x) => x !== tabKey)) 
-                                            console.log(subActiveTabs + ":XX" )
-                                            console.log(subActiveTabs.length + "::" + currentSubTab)
                                             if (subActiveTabs.length-2 === currentSubTab) {
-                                              console.log("onfire")
                                               setCurrentSubTab(prev => prev-1)
                                             }
                                             
@@ -367,8 +357,6 @@ export default function MosaicComponent() {
 
                       </div>
                     </>
-                  }
-                  {console.log("currentSubTab:" + id + "\n HTML-VALUE: " + htmlValue)
                   }
                   { id && subActiveTabs.includes(id) &&
                     <MosaicSubComponent idx={id} htmlValue={htmlValue[id]} setHtmlValue={setHtmlValue} cssValue={cssValue[id]} setCssValue={setCssValue} />
