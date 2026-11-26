@@ -146,8 +146,7 @@ export default function MosaicComponent() {
 
   const spawnBoxDescription = htmlElements.map((x) => x.description) 
 
-
-  window.addEventListener('TouchEvent', tabBarHandler);
+  console.log("tasa:" + window.innerWidth)
 
   useEffect(() => {
         localStorage.setItem(key, JSON.stringify({ activeTabs, currentTab, subActiveTabs, currentSubTab, showTabScroll, showSubTabScroll, windowSize, htmlValue, cssValue, reactBrowser, index }));
@@ -382,29 +381,35 @@ export default function MosaicComponent() {
             initialValue={{
               type: 'split',
               direction: 'row',
-              splitPercentages: windowSize.current,
+              splitPercentages: window.innerWidth >= 850 ?  windowSize.current : [100, 100],
               children: [
                 {
                   type: 'tabs',
                   tabs: activeTabs,
                   activeTabIndex: currentTab,
                 },
-                {
-                  type: 'split',
-                  direction: 'column',
-                  splitPercentages: windowSizeColumn.current,
 
-                  children: ['playbrowser', {
-                    type: 'tabs',
-                    direction: 'row',
-                    tabs: subActiveTabs,
-                    activeTabIndex: currentSubTab,
-
-                  }],
-                },  
-              ]}}
+                ...(window.innerWidth >= 850
+                  ? [
+                      {
+                        type: 'split',
+                        direction: 'column',
+                        splitPercentages: windowSizeColumn.current,
+                        children: [
+                          'playbrowser',
+                          {
+                            type: 'tabs',
+                            direction: 'row',
+                            tabs: subActiveTabs,
+                            activeTabIndex: currentSubTab,
+                          },
+                        ],
+                      },
+                    ]
+                  : []),
+              ],
+            }}
           />
-
         </div>
       : <FallBeamBackground beamColorClass="indigo-400" />}
     </main>  

@@ -1,6 +1,6 @@
 nav {
     display: grid;
-    grid-template-columns: 0.055fr auto 0.1fr;
+    grid-template-columns: 100px auto 0.1fr;
     background: linear-gradient(90deg, #1B1B1B 0%, #16171D 100%);
     z-index: 1;
     position: relative;
@@ -138,6 +138,8 @@ nav {
     margin-right: 35px;
     height: 100%;
     align-items: baseline;
+    background-color: #16171D;
+
 }
 
 .leftMenu a {

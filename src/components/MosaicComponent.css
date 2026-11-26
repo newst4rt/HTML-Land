@@ -117,6 +117,7 @@ background-color: #1E1E2E;
     top: 0px;
     z-index: 2;
     background-color: #1E1E1E;
+    left: 0px;
 }
 
 .mosaic-custom-theme .mosaic-tab-button:hover {
