@@ -1,6 +1,6 @@
 nav {
     display: grid;
-    grid-template-columns: 100px auto 200px;
+    grid-template-columns: 7em auto 10em;
     background: linear-gradient(90deg, #1B1B1B 0%, #16171D 100%);
     z-index: 1;
     position: relative;
@@ -106,7 +106,7 @@ nav {
 .reset-answerbtn {
     border: 1px solid white;
     background-color: transparent;
-    width: 45%;
+    width: 40%;
     margin-right: 10px;
 }
 
@@ -169,10 +169,30 @@ nav {
     color: black;
 }
 
+.tooltiptext {
+  visibility: hidden; /* Hidden by default */
+  color: #8b8b8b;
+  text-align: center;
+  padding: 4px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  right: 165px;
+  font-size: 11px;
+  top: -5px;
+  user-select: none;
+}
+
+
+.playbrowser-ref:hover .tooltiptext {
+  visibility: visible;
+}
+
 .disable {
     display: none !important;
-
 }
+
+
 
 @keyframes gradient-shift {
   0% {

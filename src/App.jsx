@@ -13,7 +13,6 @@ export default function App() {
   useEffect(() => {
     function handleResize() {
       setIsWideScreen(window.innerWidth >= 850);
-      console.log(isWideScreen)
     }
 
     window.addEventListener('resize', handleResize);

@@ -54,8 +54,9 @@ export default function Header({setShowPlayBrowser, isWideScreen}) {
                     <a className="topnav-icon" href="#"></a>
                 </ul>
                 <div className="nav-right">
-                    { isWideScreen &&
-                    <a className="playbrowser-ref" onClick={() => setShowPlayBrowser(prev => !prev)} >
+                    { isWideScreen ?
+                    <a className="playbrowser-ref" onClick={() => setShowPlayBrowser(prev => !prev)}>
+                        <span class="tooltiptext">Toggle Playbrowser</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 48 48">
                         {/* Icon from Plump free icons by Streamline - https://creativecommons.org/licenses/by/4.0/ */}
                             <g fill="none" stroke="currentColor" stroke-width="3">
@@ -65,7 +66,8 @@ export default function Header({setShowPlayBrowser, isWideScreen}) {
                             </g>
                         </svg>
                     </a>
-
+                    :
+                    <a className="playbrowser-ref"></a>
                     }
 
                     <a target="_blank" rel="noopener noreferrer" className="github-ref" href="https://github.com/newst4rt/HTML-Land">
