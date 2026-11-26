@@ -12,7 +12,7 @@ import './CodeBlock.css';
 import './MosaicComponent.css';
 
 
-export default function MosaicComponent() {
+export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
 
 
   function addTab(name) {
@@ -48,7 +48,7 @@ export default function MosaicComponent() {
   function tabBarHandler() {
 
     if (currentTab < 1) return;
-    
+    console.log("fire")
     const mosaicSplitRow = document.querySelector('.mosaic-split.-row')
     const mosaicSplitColumn = document.querySelector('.mosaic-split.-column')
     if (!mosaicSplitRow || !mosaicSplitColumn) return;
@@ -369,7 +369,7 @@ export default function MosaicComponent() {
             initialValue={{
               type: 'split',
               direction: 'row',
-              splitPercentages: window.innerWidth >= 850 ?  windowSize.current : [100, 100],
+              splitPercentages: window.innerWidth >= 850 && showPlayBrowser ?  windowSize.current : [100, 100],
               children: [
                 {
                   type: 'tabs',
@@ -377,7 +377,7 @@ export default function MosaicComponent() {
                   activeTabIndex: currentTab,
                 },
 
-                ...(window.innerWidth >= 850
+                ...(window.innerWidth >= 850 && showPlayBrowser
                   ? [
                       {
                         type: 'split',
