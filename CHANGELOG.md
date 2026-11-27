@@ -19,7 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
  - Changed CSS Style
    <!-- f3be8c07c41c33b9aa92dc6a0cbf7f326bbfa101 -->
- - Refactored logic in scrolling between tabs.
+ - Refactored code by showing arrows for scrolling in tabs.
+   <!-- 01a12696718043bcacaf2e21ce0185876d30b38a -->
+ - Changed license from CC BY-NC-SA 4.0 to MIT
+ - Changed README.md 
 
 ## [0.1.1] 2026.11.26
 
