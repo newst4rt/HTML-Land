@@ -31,9 +31,10 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
           <button
             type="button"
             name={pos}
-            className={ id == "1" ? `tab-scroll ${pos}-control ${showTabScroll ? "enabled" : "disabled"}` : `tabsub-scroll ${pos}-control ${showSubTabScroll ? "enabled" : "disabled"}`}
+            className={ id == "1" ? `tab-scroll ${pos}-control ${showTabScroll ? "enabled" : "disabled"}` : `tab-scroll sub ${pos}-control ${showSubTabScroll ? "enabled" : "disabled"}`}
             onClick={(x) => {
-              const pos = document.querySelector('.main-tab-bar')  
+              let pos
+              id == "1" ? pos = document.querySelector('.main-tab-bar') : pos = document.querySelector('.main-subtab-bar')
               pos?.scrollBy({ left: x.target.name === "left" ? -160 : 160, behavior: 'smooth' })}
             }
             
@@ -46,6 +47,27 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
   }
 
   function tabBarHandler() {
+
+    function setTabWidth(strip, toolBarWidthAll, showTabScrollAll, setShowTabScrollAll) {
+      const childStrip = Array.from(strip.children);
+      let tabWidth = 0
+      childStrip.forEach((x) => {
+        const xClassName = x.className
+        if (xClassName.includes("mosaic-tab-button")) {
+          tabWidth += x.clientWidth
+        }
+      })
+
+      if (tabWidth > toolBarWidthAll) {
+        if (!showTabScrollAll) {
+          setShowTabScrollAll(true)
+        }
+      } else {
+        if (showTabScrollAll) {
+          setShowTabScrollAll(false)
+        }
+      }
+    }
 
     if (currentTab < 1) return;
 
@@ -62,32 +84,23 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
     windowSizeColumn.current = ([mosaicWindowSizeColumn, 100-mosaicWindowSizeColumn])
 
     const strip = document.querySelector('.main-tab-bar')
-    if (!strip || !strip.children?.length) return;
+    const substrip = document.querySelector('.main-subtab-bar')
+    if (strip || strip.children?.length) {
+      const toolBarWidth = strip.clientWidth
+      setTabWidth(strip, toolBarWidth, showTabScroll, setShowTabScroll)
+    }
 
-    const toolBarWidth = strip.clientWidth
+    if (substrip || substrip.children?.length) {
+      const subToolBarWidth = substrip.clientWidth
+      setTabWidth(substrip, subToolBarWidth, showSubTabScroll, setShowSubTabScroll)
 
-    const childStrip = Array.from(strip.children);
-    let tabWidth = 0
-      childStrip.forEach((x) => {
-        const xClassName = x.className
-        if (xClassName.includes("mosaic-tab-button")) {
-          tabWidth += x.clientWidth
-        }
-      })
+    }
 
-      if (tabWidth > toolBarWidth) {
-        if (!showTabScroll) {
-          setShowTabScroll(true)
-        }
-      } else {
-        if (showTabScroll) {
-          setShowTabScroll(false)
-        }
-      }
+
+  
   }
 
   function handleTabClick(e, index, tabKey, check) {
-    console.log(tabKey, check)
     if (clickTimeoutRef.current) {
       clearTimeout(clickTimeoutRef.current);
       clickTimeoutRef.current = null;
@@ -323,7 +336,7 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
                         )}
                     </div>
                     <div className="mosaic-tab-bar-controls right">
-                      { tabs[0] === '__hidden__' && <TabScrollController id={tabs[0] === '__hidden__' ? "1" : "0"}  pos="right" />}
+                      <TabScrollController id={tabs[0] === '__hidden__' ? "1" : "0"} pos="right" />
 
                     </div>
                   </div>
