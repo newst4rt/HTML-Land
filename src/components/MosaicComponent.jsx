@@ -48,7 +48,7 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
   function tabBarHandler() {
 
     if (currentTab < 1) return;
-    console.log("fire")
+
     const mosaicSplitRow = document.querySelector('.mosaic-split.-row')
     const mosaicSplitColumn = document.querySelector('.mosaic-split.-column')
     if (!mosaicSplitRow || !mosaicSplitColumn) return;
@@ -87,11 +87,12 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
   }
 
   function handleTabClick(e, index, tabKey, check) {
+    console.log(tabKey, check)
     if (clickTimeoutRef.current) {
       clearTimeout(clickTimeoutRef.current);
       clickTimeoutRef.current = null;
       
-      if (tabKey && !changeSubTabName) {
+      if (tabKey && !changeSubTabName && check === '__subhidden__') {
         
         setChangeSubTabName(tabKey); 
       }
@@ -108,6 +109,11 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
     }, 250);
   };
 
+  function saveLocalStorage() {
+      localStorage.setItem(key, JSON.stringify({ activeTabs, currentTab, subActiveTabs, currentSubTab, showTabScroll, showSubTabScroll, windowSize, htmlValue, cssValue, reactBrowser, index }));
+
+
+  }
 
 
   const key = `mosaic-session`;
@@ -141,13 +147,18 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
 
   const spawnBoxDescription = htmlElements.map((x) => x.description) 
 
+  window.addEventListener('unload', (() => 
+    saveLocalStorage()
+  ));
+
 
   useEffect(() => {
-        localStorage.setItem(key, JSON.stringify({ activeTabs, currentTab, subActiveTabs, currentSubTab, showTabScroll, showSubTabScroll, windowSize, htmlValue, cssValue, reactBrowser, index }));
+        saveLocalStorage();
     }, [key, activeTabs, subActiveTabs, currentTab, currentSubTab, showTabScroll, showSubTabScroll, htmlValue, cssValue, reactBrowser, index, ]);
 
   useEffect(() => {
       tabBarHandler();
+
   }, [activeTabs, currentTab]);
 
   useEffect(() => {

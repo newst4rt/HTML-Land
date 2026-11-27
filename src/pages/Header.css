@@ -170,17 +170,18 @@ nav {
 }
 
 .tooltiptext {
-  visibility: hidden; /* Hidden by default */
-  color: #8b8b8b;
-  text-align: center;
-  padding: 4px;
-  border-radius: 10px;
-  position: absolute;
-  z-index: 1;
-  right: 165px;
-  font-size: 11px;
-  top: -5px;
-  user-select: none;
+    visibility: hidden;
+    color: #ababab;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    right: 16.75em;
+    font-size: 10px;
+    top: 1px;
+    user-select: none;
+    background-color: #333335;
+    border-radius: 15px;
+    padding: 0 6px;
 }
 
 
