@@ -6,7 +6,7 @@ import leftArrow from '/src/assets/left-arrow.png'
 
 
 
-export default function Header({setShowPlayBrowser, isWideScreen}) {
+export default function Header({setShowPlayBrowser, isWideScreen, deleteLocalStorage}) {
 
     function openMenu(e) {
         arrowState && setArrowState(false)  
@@ -102,10 +102,12 @@ export default function Header({setShowPlayBrowser, isWideScreen}) {
                     </label>
                     <br/>
                     <button className="reset-answerbtn yes" onClick={(e) => {
+                        deleteLocalStorage.current = true
                         togglePopup()
                         localStorage.clear()
                         }} >Yes</button>
                     <button className="reset-answerbtn no" onClick={(e) => {
+                        deleteLocalStorage.current = false
                         e.preventDefault()
                         togglePopup()
                         }}  >No</button> 

@@ -12,7 +12,7 @@ import './CodeBlock.css';
 import './MosaicComponent.css';
 
 
-export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
+export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser, deleteLocalStorage}) {
 
 
   function addTab(name) {
@@ -123,9 +123,7 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser}) {
   };
 
   function saveLocalStorage() {
-      localStorage.setItem(key, JSON.stringify({ activeTabs, currentTab, subActiveTabs, currentSubTab, showTabScroll, showSubTabScroll, windowSize, htmlValue, cssValue, reactBrowser, index }));
-
-
+      deleteLocalStorage.current === false && localStorage.setItem(key, JSON.stringify({ activeTabs, currentTab, subActiveTabs, currentSubTab, showTabScroll, showSubTabScroll, windowSize, htmlValue, cssValue, reactBrowser, index }));
   }
 
 

@@ -1,14 +1,15 @@
 import Header from '/src/pages/Header'
 import Main from '/src/pages/Main'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import 'highlight.js/styles/github-dark-dimmed.css';
 
 
 export default function App() {
 
-  const [showPlayBrowser, setShowPlayBrowser ] = useState(true)
-  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 850);
+  const [ showPlayBrowser, setShowPlayBrowser ] = useState(true)
+  const [ isWideScreen, setIsWideScreen ] = useState(window.innerWidth >= 850);
+  const deleteLocalStorage = useRef(false)
 
   useEffect(() => {
     function handleResize() {
@@ -25,8 +26,8 @@ export default function App() {
 
   return(
     <>
-      <Header setShowPlayBrowser={setShowPlayBrowser} isWideScreen={isWideScreen}/>
-      <Main showPlayBrowser={showPlayBrowser} setShowPlayBrowser={setShowPlayBrowser}/>
+      <Header setShowPlayBrowser={setShowPlayBrowser} isWideScreen={isWideScreen} deleteLocalStorage={deleteLocalStorage}/>
+      <Main showPlayBrowser={showPlayBrowser} setShowPlayBrowser={setShowPlayBrowser} deleteLocalStorage={deleteLocalStorage}/>
     </>
   )
 
