@@ -13,75 +13,83 @@ function SpawnRowBoolAttribute({id, htmlAttributes, boolAtt, setBoolAtt}) {
         } else {
             setBoolAtt(boolAtt.filter((x) => x !== target.value))
         }
-
     }
 
     return(   
     <>
         {htmlAttributes.map((x) => (
-        <div className="boolElement" key={`${id}-${x}`}>
+        <div className="boolElement" key={`${x}`}>
             <input 
                 type="checkbox" 
                 onChange={(e) => addBool(e.target)} 
-                checked={boolAtt.includes(x)}
+                checked={Array.isArray(boolAtt) && boolAtt.includes(x)}
                 id={`${id} ${x}`} value={x}
             />
             <label htmlFor={`${id} ${x}`}>{x}</label>
         </div>
         ))}
-
-    </> )
+    </> 
+    )
 }
 
 export default function SpawnRow({prop, attDesc}) {
-
     const key = `spawnrow:${prop.id}`;
 
-    const load = () => {
-        try { return JSON.parse(sessionStorage.getItem(key)) ?? {}; } catch { return {}; }
-    };
-    const saved = load();
+    const saved = useMemo(() => {
+        try { 
+            return JSON.parse(localStorage.getItem(key)) ?? {}; 
+        } catch { 
+            return {}; 
+        }
+    }, [key]);
 
-    const [active, setActive]   = useState(saved.active ?? false);
+    const [active, setActive] = useState(saved.active ?? false);
     const [initRow, setInitRow] = useState(saved.initRow ?? false);
-    const [strAtt, setStrAtt]   = useState(saved.strAtt ?? [{ inputSection: "id", inputValue: "" }]);
+    const [strAtt, setStrAtt] = useState(saved.strAtt ?? [{ inputSection: "id", inputValue: "" }]);
     const [boolAtt, setBoolAtt] = useState(saved.boolAtt ?? [""]);
     const [isAdding, setIsAdding] = useState(false);
     const [styleRow, setStyleRow] = useState(saved.styleRow ?? false);
-    /* const [htmlElement, setHtmlElement] = useState */
+    const [displayCode, setDisplayCode ] = useState(saved.displayCode ?? prop.code);
+    const [htmlElement, setHtmlElement ] = useState(prop.component())
 
     useEffect(() => {
-        sessionStorage.setItem(key, JSON.stringify({ active, initRow, strAtt, boolAtt, styleRow }));
-    }, [key, active, initRow, strAtt, boolAtt, styleRow]);
+        localStorage.setItem(key, JSON.stringify({ active, initRow, strAtt, boolAtt, styleRow, displayCode }));
+    }, [key, active, initRow, strAtt, boolAtt, styleRow, displayCode]);
 
+    useEffect(() => {
 
+        let _inputValue = ""
+        let _boolValue = ""
 
-    let displayCode = prop.code;
-
-    strAtt.map((it) => {
-        if (it.inputValue) {
-            if (displayCode.includes(`${it.inputSection}=`)) {
-                displayCode = displayCode.replace(/${it.inputSection}="[^"]*"/, `${it.inputSection}="${it.inputValue}"`);
-            } else {
-                displayCode = displayCode.replace(/\s*\/?>/, ` ${it.inputSection}="${it.inputValue}"/>`);
+        strAtt.map((it) => {
+            if (it.inputValue) {
+                _inputValue += `${it.inputSection}=\"${it.inputValue}\" `
             }
-        }
-    })
-
-    boolAtt.map((it) => {
-        if (it) {
-            if (!displayCode.includes(` ${it}`)) {
-                displayCode = displayCode.replace(/\s*\/?>/, ` ${it}/>`);
-            } else {
-            }
-        }
-    })
-
-    const baseElement = useMemo(() => prop.component(), [prop]);
-    const htmlElement = cloneElement(baseElement, {
-            ...Object.fromEntries(strAtt.filter(it => it.inputValue !== '' ).map(it => [it.inputSection, it.inputValue])),
-            ...Object.fromEntries(boolAtt.filter(Boolean).map(attr => [attr, true]))
         })
+
+        boolAtt.map((it) => {
+            if (it) {
+                _boolValue += ` ${it}`;
+            }
+        })
+
+        setDisplayCode(prop.code.replace(new RegExp(
+            "\\s*(?=\\/?>)", 
+            ''
+            ), 
+            ` ${_inputValue.slice(0, -1)}${_boolValue}`
+        ))
+
+        setHtmlElement(
+            cloneElement(
+                prop.component(), {
+                ...Object.fromEntries(strAtt.filter(it => it.inputValue !== '' ).map(it => [it.inputSection, it.inputValue])),
+                ...Object.fromEntries(boolAtt.filter(Boolean).map(attr => [attr, true]))
+                }
+            )
+        )
+
+    }, [strAtt,boolAtt])
 
     return(
         <>
