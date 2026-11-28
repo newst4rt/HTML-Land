@@ -7,9 +7,13 @@
   An interactive playground featuring a wide range of HTML elements, allowing learners to explore their functionality through practical, visual examples. 
   </br></br>
   <img  height="86" alt="HTML-Land" src="https://github.com/user-attachments/assets/c182747e-23fb-4c5f-ad40-d649a440a82e" />
-  <br></br>
+  <br>
   
- [![React](https://img.shields.io/badge/-%2320232a.svg?&logo=react&logoColor=%2361DAFB)](#)[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://benevolent-cucurucho-392284.netlify.app/) [![Status](https://img.shields.io/badge/Status-Prototype-orange)](#) [![License MIT](https://img.shields.io/badge/License-MIT-blue)](#)   <br>
+ [![React](https://img.shields.io/badge/-%2320232a.svg?&logo=react&logoColor=%2361DAFB&style=for-the-badge)](https://benevolent-cucurucho-392284.netlify.app/)[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&labelColor=%2320232a)](https://benevolent-cucurucho-392284.netlify.app/) 
+ <br/><br/>
+ [![Status](https://img.shields.io/badge/Status-Prototype-orange)](#) [![License MIT](https://img.shields.io/badge/License-MIT-blue)](#)   <br>
+
+
 
 
 <!-- ![Github](https://img.shields.io/badge/%20-0A1432.svg?&logo=github&logoColor=white)[![GitHub commit](https://img.shields.io/github/commit-activity/t/newst4rt/HTML-Land?labelColor=%230A1432&color=%23121e42)](#)[![GitHub last commit](https://img.shields.io/github/last-commit/newst4rt/HTML-Land?labelColor=%230A1432&color=%23121e42)](#)  [![GitHub Issues](https://img.shields.io/github/issues/newst4rt/HTML-Land?labelColor=%230A1432&color=%23121e42)](#)[![GitHub Pullrequest](https://img.shields.io/github/issues-pr/newst4rt/HTML-Land?labelColor=%230A1432&color=%23121e42)](#)[![GitHub Discussion](https://img.shields.io/github/discussions/all/newst4rt/HTML-Land?labelColor=%230A1432&color=%23121e42)](#)

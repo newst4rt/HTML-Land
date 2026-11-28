@@ -3,7 +3,7 @@ import { htmlElements } from '/src/assets/HTML-Tags/FormElements'
 import { htmlAttributeDescription } from '/src/assets/HTML-Tags/DescriptionAttributes'
 import SpawnRow from '/src/components/SpawnRow/SpawnRow'
 import '/src/components/SpawnRow.css'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import  MosaicSubComponent  from '/src/components/MosaicWindow/MosaicSubComponent.jsx'
 import FallBeamBackground from '/src/components/BackGround/FallBeamBackground.jsx'
 import { defaultHTML, defaultCSS } from '/src/components/PlayBrowser/DefaultValues.js'
@@ -130,10 +130,10 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser, de
   const key = `mosaic-session`;
 
 
-  const load = () => {
+  const saved = useMemo(() => {
         try { return JSON.parse(localStorage.getItem(key)) ?? {}; } catch { return {}; }
-    };
-  const saved = load();
+  });
+
   const [activeTabs, setActiveTabs] = useState(saved.activeTabs ?? ['__hidden__'])
   const [subActiveTabs, setSubActiveTabs] = useState(saved.subActiveTabs ?? ["__subhidden__", "PAGE-1", "PAGE-2", "+"])
   const [currentTab, setCurrentTab] = useState(saved.currentTab ?? 1)
@@ -154,14 +154,11 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser, de
   const [changeSubTabName, setChangeSubTabName ] = useState(false)
 
 
-  /*const spawnBoxName = inputType[0].name */
-
   const spawnBoxDescription = htmlElements.map((x) => x.description) 
 
   window.addEventListener('unload', (() => 
     saveLocalStorage()
   ));
-
 
   useEffect(() => {
         saveLocalStorage();
@@ -342,8 +339,6 @@ export default function MosaicComponent({showPlayBrowser, setShowPlayBrowser, de
               );
               }}
             renderTile={(id, path) => {
-
-
               return (
                 <MosaicWindow path={path} title={id}>
                   { id === '__hidden__' && (
